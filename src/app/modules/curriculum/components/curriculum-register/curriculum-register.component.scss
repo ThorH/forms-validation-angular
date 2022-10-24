@@ -1,0 +1,158 @@
+@import "../../../../../variables";
+
+.register {
+  max-width: 650px;
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .register__row {
+      width: 85%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+
+      .add {
+        margin-bottom: 10px;
+      }
+
+      .invalid-input {
+        border: $border-invalid;
+        border-radius: 4px;
+      }
+      .valid-input {
+        border: solid 1px $green-light;
+        border-radius: 4px;
+      }
+      .neutral-input {
+        border: $border-neutral;
+        border-radius: 4px;
+      }
+
+      .row__field {
+        position: relative;
+        margin-bottom: 10px;
+        input,
+        select {
+          display: flex;
+          font-size: 16px;
+          padding: 10px;
+          height: 50px;
+          background: white;
+          width: 250px;
+          box-sizing: border-box;
+          transition: 0.3s;
+          color: black;
+          font-weight: 400;
+
+          &:focus {
+            //border: solid 1px #57a8ce;
+            outline: 0;
+          }
+          &:not(:placeholder-shown) {
+            padding: 20px 10px 0 10px;
+          }
+          &:not(:placeholder-shown) + label {
+            transform: translateY(-10px);
+            opacity: 0.7;
+          }
+        }
+
+        .field__optional {
+          border: $border-neutral;
+          border-radius: 4px;
+        }
+
+        textarea {
+          display: flex;
+          font-family: "Roboto", sans-serif;
+          font-size: 16px;
+          width: 525px;
+          min-height: 150px;
+          padding: 10px;
+          box-sizing: border-box;
+          transition: 0.3s;
+
+          &:focus {
+            outline: 0;
+          }
+
+          &:not(:placeholder-shown) {
+            padding: 28px 10px 0 10px;
+          }
+
+          &:not(:placeholder-shown) + label {
+            transform: translateY(-10px);
+            opacity: 0.7;
+          }
+        }
+        label {
+          position: absolute;
+          top: 17px;
+          margin-left: 11px;
+          opacity: 0;
+          transition: 0.3s;
+          font-size: 15px;
+          color: black;
+        }
+
+        .field__invalid {
+          margin-top: 2px;
+          background-color: $pink-light;
+          border: $border-invalid;
+          border-radius: 4px;
+
+          padding: 10px 5px;
+          p {
+            color: white;
+            font-size: 15px;
+          }
+        }
+
+        .field__btn-remove {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          float: right;
+          margin-top: 2px;
+          width: 30px;
+          height: 30px;
+
+          img {
+            width: 18px;
+          }
+        }
+      }
+    }
+
+    .register__cep-address {
+      width: 525px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-bottom: 10px;
+      padding: 10px 0;
+      background-color: $white-ice;
+      border-radius: 4px;
+
+      p {
+        margin: 5px 0;
+        text-align: left;
+        width: 40%;
+      }
+    }
+
+    .btn-submit {
+      width: 100%;
+      text-align: center;
+
+      button {
+        font-size: 20px;
+        width: 100px;
+        height: 50px;
+      }
+    }
+  }
+}

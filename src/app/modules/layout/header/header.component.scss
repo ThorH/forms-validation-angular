@@ -1,0 +1,31 @@
+@import "../../../../variables";
+
+header {
+  padding: 40px 0px 10px 50px;
+  background-color: $green-dark;
+  color: white;
+
+  h1 {
+    font-size: 38px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  nav {
+    display: flex;
+    list-style-type: none;
+    a {
+      font-size: 19px;
+      font-weight: 700;
+      background-color: $green-darklight;
+      box-shadow: 0 0 10px black;
+      border-radius: 2px;
+      margin-left: 10px;
+      padding: 15px;
+      transition: 0.2s;
+      &:hover {
+        opacity: 0.4;
+      }
+    }
+  }
+}

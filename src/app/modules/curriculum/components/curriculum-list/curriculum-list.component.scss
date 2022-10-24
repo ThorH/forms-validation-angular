@@ -1,0 +1,91 @@
+@import "../../../../../variables";
+//@import "node_modules/angular-notifier/styles.scss";
+.curriculum-list {
+  .curriculum-list__item {
+    width: 700px;
+
+    @media screen and (max-width: 800px) {
+      width: 600px;
+    }
+    @media screen and (max-width: 600px) {
+      width: 450px;
+    }
+
+    .item__card {
+      display: flex;
+      min-height: 50px;
+      background-color: $white-ice;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 10px;
+      margin-bottom: 10px;
+
+      div {
+        min-height: 40px;
+      }
+      .card__name {
+        width: 40%;
+        overflow-wrap: break-word;
+      }
+      .card__options {
+        width: 200px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        img {
+          width: 15px;
+          height: 15px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .item__details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      background-color: $white-ice;
+      padding: 20px;
+      margin-bottom: 10px;
+      p {
+        width: 30%;
+        min-height: 40px;
+        margin-bottom: 10px;
+        overflow-wrap: break-word;
+      }
+      .details__experiences {
+        width: 70%;
+
+        p {
+          width: 100%;
+          min-height: 0px;
+        }
+      }
+    }
+  }
+}
+
+.import-content {
+  margin-top: 20px;
+  h4 {
+    margin-bottom: 10px;
+  }
+  input[type="file"] {
+    display: none;
+  }
+  label {
+    border: 1px solid $gray-light;
+    border-radius: 4px;
+    display: inline-block;
+    padding: 12px 12px;
+    cursor: pointer;
+  }
+  button {
+    margin-left: 10px;
+  }
+}
+
+.empty-list {
+  font-size: 26px;
+  margin-bottom: 20px;
+}

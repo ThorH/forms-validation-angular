@@ -1,0 +1,196 @@
+<div class="register">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="register__row">
+      <div class="row__field">
+        <input
+          id="name"
+          type="text"
+          placeholder="Name"
+          formControlName="name"
+          [ngClass]="applyCssFieldState('name')"
+        />
+        <label for="name">Name:</label>
+        <div *ngIf="invalidFieldInteraction('name')" class="field__invalid">
+          <p>{{ invalidValueMessage("name") }}</p>
+        </div>
+      </div>
+
+      <div class="row__field">
+        <input
+          id="surname"
+          type="text"
+          placeholder="Surname"
+          formControlName="surname"
+          [ngClass]="applyCssFieldState('surname')"
+        />
+        <label for="surname">Surname:</label>
+        <div *ngIf="invalidFieldInteraction('surname')" class="field__invalid">
+          <p>{{ invalidValueMessage("surname") }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="register__row">
+      <div class="row__field">
+        <input
+          id="birthdate"
+          type="text"
+          placeholder="Birth Date"
+          mask="00/00/0000"
+          formControlName="birthdate"
+          [ngClass]="applyCssFieldState('birthdate')"
+        />
+        <label for="birthdate">Birth Date:</label>
+        <div
+          *ngIf="invalidFieldInteraction('birthdate')"
+          class="field__invalid"
+        >
+          <p>{{ invalidValueMessage("birthdate") }}</p>
+        </div>
+      </div>
+      <div class="row__field">
+        <select
+          id="gender"
+          class="field__optional"
+          formControlName="email"
+          formControlName="gender"
+        >
+          <option value="masculine">Masculine</option>
+          <option value="feminine">Feminine</option>
+          <option value="other">Other</option>
+        </select>
+        <label for="gender">Gender:</label>
+      </div>
+    </div>
+    <div class="register__row">
+      <div class="row__field">
+        <input
+          id="cpf"
+          type="text"
+          placeholder="CPF"
+          mask="000.000.000-00"
+          formControlName="cpf"
+          [ngClass]="applyCssFieldState('cpf')"
+        />
+        <label for="cpf">CPF:</label>
+        <div *ngIf="invalidFieldInteraction('cpf')" class="field__invalid">
+          <p>{{ invalidValueMessage("cpf") }}</p>
+        </div>
+      </div>
+
+      <div class="row__field">
+        <input
+          id="zipcode"
+          type="text"
+          placeholder="Zip Code"
+          mask="00000-000"
+          formControlName="zipcode"
+          [ngClass]="applyCssFieldState('zipcode')"
+          (blur)="getAddressFromZipcode()"
+        />
+        <label for="zipcode">Zip Code:</label>
+        <div *ngIf="invalidFieldInteraction('zipcode')" class="field__invalid">
+          <p>{{ invalidValueMessage("zipcode") }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="register__cep-address" *ngIf="actualAddress.cep !== ''">
+      <p><strong>Street:</strong> {{ actualAddress.logradouro }}</p>
+      <p><strong>Neighborhood:</strong> {{ actualAddress.bairro }}</p>
+      <p><strong>City:</strong> {{ actualAddress.localidade }}</p>
+      <p><strong>State:</strong> {{ actualAddress.uf }}</p>
+    </div>
+
+    <div class="register__row">
+      <div class="row__field">
+        <input
+          id="number"
+          type="text"
+          placeholder="Number"
+          formControlName="number"
+          [ngClass]="applyCssFieldState('number')"
+        />
+        <label for="number">Number:</label>
+        <div *ngIf="invalidFieldInteraction('number')" class="field__invalid">
+          <p>{{ invalidValueMessage("number") }}</p>
+        </div>
+      </div>
+
+      <div class="row__field">
+        <input
+          id="details"
+          class="field__optional"
+          type="text"
+          placeholder="Additional address details"
+          formControlName="details"
+        />
+        <label for="details">Additional address details:</label>
+      </div>
+    </div>
+
+    <div class="register__row">
+      <div class="row__field">
+        <input
+          id="phone"
+          type="text"
+          placeholder="Phone"
+          mask="(00) 00000-0000"
+          formControlName="phone"
+          [ngClass]="applyCssFieldState('phone')"
+        />
+        <label for="phone">Phone:</label>
+        <div *ngIf="invalidFieldInteraction('phone')" class="field__invalid">
+          <p>{{ invalidValueMessage("phone") }}</p>
+        </div>
+      </div>
+      <div class="row__field">
+        <input
+          id="email"
+          type="text"
+          placeholder="Email"
+          formControlName="email"
+          [ngClass]="applyCssFieldState('email')"
+        />
+        <label for="email">Email:</label>
+        <div *ngIf="invalidFieldInteraction('email')" class="field__invalid">
+          <p>{{ invalidValueMessage("email") }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="register__row" formArrayName="experiences">
+      <button type="button" (click)="addExperience()" class="btn-green add">
+        Add new experience
+      </button>
+      <div
+        class="row__field"
+        *ngFor="let experience of experiences.controls; let i = index"
+      >
+        <textarea
+          id="experiences"
+          placeholder="Experiences"
+          type="text"
+          formControlName="experiences"
+          [ngClass]="applyCssExperienceState(experience)"
+          [formControlName]="i"
+        ></textarea>
+        <label for="experiences">Experiences:</label>
+        <div
+          *ngIf="invalidExperienceInteraction(experience)"
+          class="field__invalid"
+        >
+          <p>{{ invalidExperienceMessage(experience) }}</p>
+        </div>
+        <button
+          type="button"
+          class="field__btn-remove"
+          *ngIf="i > 0"
+          (click)="removeExperience(i)"
+        >
+          <img src="assets/images/trash-icon.png" alt="Trash icon" />
+        </button>
+      </div>
+    </div>
+    <div class="btn-submit">
+      <button class="btn-green" type="submit">Submit</button>
+    </div>
+  </form>
+</div>

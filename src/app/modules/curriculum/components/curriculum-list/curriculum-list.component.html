@@ -1,0 +1,74 @@
+<div class="curriculum-list" *ngIf="curriculumList.length !== 0">
+  <div
+    class="curriculum-list__item"
+    *ngFor="let curriculum of curriculumList; let i = index"
+  >
+    <div class="item__card">
+      <div class="card__name">
+        <p><strong>Name:</strong></p>
+        <p>{{ curriculum.name }} {{ curriculum.surname }}</p>
+      </div>
+      <div class="card__cpf">
+        <p><strong>CPF:</strong></p>
+        <p>{{ curriculum.cpf }}</p>
+      </div>
+      <div class="card__options">
+        <button class="btn-green" (click)="exportCurriculum(i)">
+          <a [href]="jsonHref" download="curriculum.json">Export</a>
+        </button>
+        <button class="btn-red" (click)="removeCurriculum(i)">Remove</button>
+        <img
+          src="assets/images/arrow.png"
+          (click)="clickShowDetails(i)"
+          alt="Arrow show details"
+        />
+      </div>
+    </div>
+
+    <div class="item__details" *ngIf="this.showDetails.includes(i)">
+      <p>
+        <strong>Name: </strong>{{ curriculum.name }} {{ curriculum.surname }}
+      </p>
+      <p><strong>Birth date: </strong>{{ curriculum.birthdate }}</p>
+      <p><strong>Gender: </strong>{{ curriculum.gender }}</p>
+      <p><strong>CPF: </strong>{{ curriculum.cpf }}</p>
+      <p><strong>CEP: </strong>{{ curriculum.zipcode }}</p>
+      <p>
+        <strong>Additional address details: </strong> {{ curriculum.details }}
+      </p>
+      <p><strong>Number: </strong>{{ curriculum.number }}</p>
+      <p><strong>Phone: </strong>{{ curriculum.phone }}</p>
+      <p><strong>Email: </strong>{{ curriculum.email }}</p>
+      <div class="details__experiences">
+        <p><strong>Experiences: </strong></p>
+        <div *ngFor="let experience of curriculum.experiences">
+          <p>
+            {{ experience }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="empty-list" *ngIf="curriculumList.length === 0">
+  <h3>Do not have a registered curriculum...</h3>
+</div>
+
+<div class="import-content">
+  <h4>Import new curriculum json format</h4>
+  <label for="import">Select your file...</label>
+  <input
+    id="import"
+    type="file"
+    class="form-control-file"
+    accept=".json"
+    (change)="fileChanged($event)"
+  />
+  <button class="btn-green" type="button" (click)="importCurriculum()">
+    Import
+  </button>
+  <p *ngIf="fileName">
+    <strong>{{ fileName }}</strong>
+  </p>
+</div>
