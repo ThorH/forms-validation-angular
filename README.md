@@ -21,3 +21,13 @@ This project its a Curriculum Register. You can register, check registered curri
     <li>rxjs</li>
     <li>moment</li>
 </ul>
+
+<div align="center">
+    <p><strong>Curriculum register</strong></p>
+    <img width="500" src="readme/gifs/curriculumRegister.gif">
+</div>
+<br>
+<div align="center">
+    <p><strong>Export, import and delete</strong></p>
+    <img width="500" src="readme/gifs/exportImportDelete.gif">
+</div>
