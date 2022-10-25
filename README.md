@@ -1,27 +1,23 @@
-# Curriculum Register
+# Curriculum register - Forms validation
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
-## Development server
+## Installing dependencies and running project
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm install` to install dependencies and `npm start` to start the project in
+`http://localhost:4200/`.
 
-## Code scaffolding
+## Project description
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This project its a Curriculum Register. You can register, check registered curriculum, export in a json format and delete. The fields of the registration form are validated and the zip code is validated according to the response of the "viacep" api, if the zip code is found the address data is filled in automatically.
 
-## Build
+## Dependencies
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<ul>
+    <li>ngx-mask</li>
+    <li>ngx-toastr</li>
+    <li>bootstrap</li>
+    <li>brazilian-values</li>
+    <li>rxjs</li>
+    <li>moment</li>
+</ul>
